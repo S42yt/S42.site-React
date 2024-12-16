@@ -1,0 +1,23 @@
+{
+  "name": "portfolio-project",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "bun run vite",
+    "build": "bun run vite build",
+    "serve": "bun run vite preview"
+  },
+  "dependencies": {
+    "@types/react": "^19.0.1",
+    "@types/react-dom": "^19.0.2",
+    "@vitejs/plugin-react": "^4.3.4",
+    "prettier": "^3.4.2",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-tsparticles": "^2.12.2",
+    "ts-node": "^10.9.2",
+    "tsparticles": "^3.7.1",
+    "typescript": "^5.7.2",
+    "vite": "^6.0.3"
+  }
+}
