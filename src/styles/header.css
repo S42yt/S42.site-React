@@ -1,0 +1,106 @@
+.header {
+    position: relative;
+    padding: 20px 10px;
+    z-index: 1;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;  
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.8); /* Adjust the background color and opacity as needed */
+    transition: transform 0.3s ease, backdrop-filter 0.3s ease;
+}
+
+.header-left {
+    position: absolute;
+    left: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.headertext {
+    transition: transform 0.3s ease;
+}
+
+.headertext.scrolled {
+    opacity: 0.6;
+    font-size: 1.5rem;
+}
+
+.headertext {
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    font-size: 2rem;
+    transition: transform 0.3s ease;
+}
+
+.header-right {
+    position: absolute;
+    margin-right: 40px;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    gap: 10px;
+}
+
+.header-right button {
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: border 0.3s ease, background-color 0.3s ease;
+}
+
+.header-right button:hover {
+    background-color: #444;
+}
+
+@media (max-width: 600px) {
+    .header {
+        padding: 10px 5px;
+    }
+
+    .header-left {
+        left: 5px;
+    }
+
+    .headertext {
+        font-size: 1.5rem;
+    }
+
+    .headertext.scrolled {
+        font-size: 1rem;
+    }
+
+    .header-right {
+        right: 5px;
+    }
+
+    .header-right button {
+        padding: 5px 10px;
+        font-size: 0.8rem;
+    }
+}
+
+body.light-mode .header {
+    background-color: rgba(255, 255, 255, 0.8);
+    color: black;
+}
+
+body.light-mode .header-right button {
+    background-color: white;
+    color: black;
+}
+
+body.light-mode .header-right button:hover {
+    background-color: #ddd;
+}
