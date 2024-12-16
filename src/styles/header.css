@@ -16,6 +16,29 @@
     transition: transform 0.3s ease, backdrop-filter 0.3s ease;
 }
 
+.scroll-progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 5px;
+    background: linear-gradient(90deg, purple, blue, white);
+    background-size: 300% 300%;
+    animation: gradientAnimation 5s ease infinite;
+    z-index: 1001;
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
 .header-left {
     position: absolute;
     left: 30px;

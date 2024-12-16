@@ -15,6 +15,7 @@ const Header: React.FC = () => {
     const [headerBlur, setHeaderBlur] = useState(0);
     const [isDarkMode, setIsDarkMode] = useState(true);
     const [isLightModeLocked, setIsLightModeLocked] = useState(false);
+    const [scrollProgress, setScrollProgress] = useState(0);
 
     useEffect(() => {
         const handleType = () => {
@@ -45,10 +46,14 @@ const Header: React.FC = () => {
     useEffect(() => {
         const handleScroll = () => {
             const scrollY = window.scrollY;
-            const maxScroll = 100;
-            const scale = Math.max(0.9, 1 - (scrollY / maxScroll) * 0.1);
-            const blur = Math.min((scrollY / maxScroll) * 5, 5);
-            const opacity = Math.max(0.6, 1 - (scrollY / maxScroll) * 0.4);
+            const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPercent = (scrollY / maxScroll) * 100;
+            setScrollProgress(scrollPercent);
+
+            const maxScrollForHeader = 100;
+            const scale = Math.max(0.9, 1 - (scrollY / maxScrollForHeader) * 0.1);
+            const blur = Math.min((scrollY / maxScrollForHeader) * 5, 5);
+            const opacity = Math.max(0.6, 1 - (scrollY / maxScrollForHeader) * 0.4);
 
             setHeaderTextScale(scale);
             setHeaderBlur(blur);
@@ -110,6 +115,7 @@ const Header: React.FC = () => {
                 backdropFilter: `blur(${headerBlur}px)`,
             }}
         >
+            <div className="scroll-progress" style={{ width: `${scrollProgress}%` }}></div>
             <div className="header-left">
                 <DarkModeSwitch
                     checked={isDarkMode}
