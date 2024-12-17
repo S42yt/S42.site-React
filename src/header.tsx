@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Toaster, toast } from 'react-hot-toast';
 import { DarkModeSwitch } from 'react-toggle-dark-mode';
+import { useNavigate, useLocation } from 'react-router-dom';
 import './styles/header.css';
 
-const texts = ["S42.site", "Portfolio", "Frontend/Backend-Developer", "CuteCraft.net", "Biogg.net"];
-
+const defaultTexts = ["S42.site", "Portfolio", "Frontend/Backend-Developer", "CuteCraft.net", "Biogg.net"];
+const socialTexts = ["S42.site", "YouTube", "Twitch", "Instagram"];
 const Header: React.FC = () => {
-    const [currentText, setCurrentText] = useState(texts[0]);
+    const [currentText, setCurrentText] = useState(defaultTexts[0]);
     const [isDeleting, setIsDeleting] = useState(false);
     const [loopNum, setLoopNum] = useState(0);
     const [typingSpeed, setTypingSpeed] = useState(150);
@@ -16,6 +17,18 @@ const Header: React.FC = () => {
     const [isDarkMode, setIsDarkMode] = useState(true);
     const [isLightModeLocked, setIsLightModeLocked] = useState(false);
     const [scrollProgress, setScrollProgress] = useState(0);
+    const [clickCount, setClickCount] = useState(0);
+    const navigate = useNavigate();
+    const location = useLocation();
+
+
+    const texts = location.pathname === "/socials" ? socialTexts : defaultTexts;
+
+    useEffect(() => {
+        setCurrentText(texts[0]);
+        setLoopNum(0);
+    }, [location]);
+
 
     useEffect(() => {
         const handleType = () => {
@@ -108,6 +121,15 @@ const Header: React.FC = () => {
         }
     };
 
+    const handleHeaderTextClick = () => {
+        setClickCount(prevCount => prevCount + 1);
+    };
+
+    const navigateToSocials = () => {
+        const targetRoute = location.pathname === '/' ? '/socials' : '/';
+        navigate(targetRoute);
+    };
+
     return (
         <header
             className="header"
@@ -131,11 +153,17 @@ const Header: React.FC = () => {
                     transform: `scale(${headerTextScale})`,
                     opacity: headerTextOpacity,
                 }}
+                onClick={handleHeaderTextClick}
             >
                 {currentText}
                 <span className="cursor">|</span>
             </h1>
             <div className="header-right">
+                            {clickCount >= 3 && (
+                    <button onClick={navigateToSocials}>
+                        {location.pathname === '/' ? '???' : 'Home'}
+                    </button>
+                )}
                 <button onClick={() => window.location.href = 'http://discord.cutecraft.net'}>CuteCraft.net</button>
                 <button onClick={() => window.location.href = 'https://biogg.net'}>Biogg.net</button>
             </div>

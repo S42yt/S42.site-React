@@ -6,7 +6,8 @@
     opacity: 0;
     transform: translateX(100%);
     transition: transform 1s, opacity 1s;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
+    text-align: center;
 }
 
 .readme.visible {
@@ -53,6 +54,39 @@
     .readme ul li {
         margin: 5px 0;
     }
+}
+
+.channel {
+    text-align: center;
+    margin: 20px 0;
+  }
+  
+  .channel img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    margin: 10px 0;
+    transition: border-radius 0.3s ease;
+  }
+
+  .channel img:hover {
+    border-radius: 8px;
+    width: 150px;
+    height: 150px;
+    margin: 10px 0;
+    transition: border-radius 0.3s ease;
+  }
+
+
+.channel a {
+    display: block;
+    margin-top: 10px;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.channel a:hover {
+    text-decoration: underline;
 }
 
 body.light-mode .readme {

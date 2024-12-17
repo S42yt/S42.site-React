@@ -3,7 +3,6 @@ import './styles/App.css';
 import Readme from './readme';
 import Header from './header';
 import Footer from './footer';
-import ParticleBackground from './clouds';
 import { Toaster } from 'react-hot-toast';
 
 const App: React.FC = () => {
@@ -11,7 +10,6 @@ const App: React.FC = () => {
     <div className="portfolio">
       <Header />
       <Toaster />
-      <ParticleBackground />
       <section className="portfolio-content">
         <p>Welcome to my portfolio! Here you will find my projects and experiences.</p>
         <Readme />
