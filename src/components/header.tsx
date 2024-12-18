@@ -5,14 +5,10 @@ import { useNavigate, useLocation } from "react-router-dom";
 import Sidebar from "./sidebar";
 import "../styles/header.css";
 
-const defaultTexts = [
-  "S42.site",
-  "Portfolio",
-  "Frontend/Backend-Developer",
-];
+const defaultTexts = ["S42.site", "Portfolio", "Frontend/Backend-Developer"];
 const socialTexts = ["S42.site", "YouTube", "Twitch", "Instagram"];
 const errorTexts = ["S42.site", "Page Not Found", "Error: 404", "/???"];
-const projectTexts = ["S42.site","CuteCraft.net","Biogg.net",];
+const projectTexts = ["S42.site", "CuteCraft.net", "Biogg.net"];
 
 const Header: React.FC = () => {
   const [currentText, setCurrentText] = useState(defaultTexts[0]);
@@ -34,10 +30,10 @@ const Header: React.FC = () => {
     location.pathname === "/socials"
       ? socialTexts
       : location.pathname === "/projects"
-      ? projectTexts
-      : location.pathname === "/404"
-        ? errorTexts
-        : defaultTexts;
+        ? projectTexts
+        : location.pathname === "/404"
+          ? errorTexts
+          : defaultTexts;
 
   useEffect(() => {
     setCurrentText(texts[0]);
