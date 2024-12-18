@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Header from "../components/header";
 import Footer from "../components/footer";
 import { Toaster } from "react-hot-toast";
 import "../styles/NotFound.css";
 
 const NotFound: React.FC = () => {
+  useEffect(() => {
+    document.title = "404 - Page Not Found";
+  }, []);
+
   return (
     <div className="notfound-container">
       <Header />

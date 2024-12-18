@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../styles/App.css";
 import Readme from "../components/readme";
 import Header from "../components/header";
@@ -6,6 +6,10 @@ import Footer from "../components/footer";
 import { Toaster } from "react-hot-toast";
 
 const App: React.FC = () => {
+  useEffect(() => {
+    document.title = "S42.site | Home";
+  }, []);
+
   return (
     <div className="portfolio">
       <Header />
