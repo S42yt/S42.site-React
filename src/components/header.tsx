@@ -2,17 +2,17 @@ import React, { useEffect, useState } from "react";
 import { Toaster, toast } from "react-hot-toast";
 import { DarkModeSwitch } from "react-toggle-dark-mode";
 import { useNavigate, useLocation } from "react-router-dom";
+import Sidebar from "./sidebar";
 import "../styles/header.css";
 
 const defaultTexts = [
   "S42.site",
   "Portfolio",
   "Frontend/Backend-Developer",
-  "CuteCraft.net",
-  "Biogg.net",
 ];
 const socialTexts = ["S42.site", "YouTube", "Twitch", "Instagram"];
 const errorTexts = ["S42.site", "Page Not Found", "Error: 404", "/???"];
+const projectTexts = ["S42.site","CuteCraft.net","Biogg.net",];
 
 const Header: React.FC = () => {
   const [currentText, setCurrentText] = useState(defaultTexts[0]);
@@ -26,12 +26,15 @@ const Header: React.FC = () => {
   const [isLightModeLocked, setIsLightModeLocked] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
   const [clickCount, setClickCount] = useState(0);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
 
   const texts: string[] =
     location.pathname === "/socials"
       ? socialTexts
+      : location.pathname === "/projects"
+      ? projectTexts
       : location.pathname === "/404"
         ? errorTexts
         : defaultTexts;
@@ -139,61 +142,51 @@ const Header: React.FC = () => {
     setClickCount((prevCount) => prevCount + 1);
   };
 
-  const navigateToSocials = () => {
-    const targetRoute = location.pathname === "/" ? "/socials" : "/";
-    navigate(targetRoute);
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
   };
 
   return (
-    <header
-      className="header"
-      style={{
-        backdropFilter: `blur(${headerBlur}px)`,
-      }}
-    >
-      <div
-        className="scroll-progress"
-        style={{ width: `${scrollProgress}%` }}
-      ></div>
-      <div className="header-left">
-        <DarkModeSwitch
-          checked={isDarkMode}
-          onChange={handleDarkModeToggle}
-          size={24}
-          sunColor="white"
-          moonColor="white"
-        />
-      </div>
-      <h1
-        className="headertext"
+    <>
+      <header
+        className="header"
         style={{
-          transform: `scale(${headerTextScale})`,
-          opacity: headerTextOpacity,
+          backdropFilter: `blur(${headerBlur}px)`,
         }}
-        onClick={handleHeaderTextClick}
       >
-        {currentText}
-        <span className="cursor">|</span>
-      </h1>
-      <div className="header-right">
-        {clickCount >= 3 && (
-          <button onClick={navigateToSocials}>
-            {location.pathname === "/" ? "???" : "Home"}
-          </button>
-        )}
-        <button
-          onClick={() =>
-            (window.location.href = "http://discord.cutecraft.net")
-          }
+        <div
+          className="scroll-progress"
+          style={{ width: `${scrollProgress}%` }}
+        ></div>
+        <div className="header-left">
+          <DarkModeSwitch
+            checked={isDarkMode}
+            onChange={handleDarkModeToggle}
+            size={24}
+            sunColor="white"
+            moonColor="white"
+          />
+        </div>
+        <h1
+          className="headertext"
+          style={{
+            transform: `scale(${headerTextScale})`,
+            opacity: headerTextOpacity,
+          }}
+          onClick={handleHeaderTextClick}
         >
-          CuteCraft.net
-        </button>
-        <button onClick={() => (window.location.href = "https://biogg.net")}>
-          Biogg.net
-        </button>
-      </div>
-      <Toaster />
-    </header>
+          {currentText}
+          <span className="cursor">|</span>
+        </h1>
+        <div className="header-right">
+          <button onClick={toggleSidebar}>
+            <span className="button-content">☰</span>
+          </button>
+        </div>
+        <Toaster />
+      </header>
+      <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
+    </>
   );
 };
 

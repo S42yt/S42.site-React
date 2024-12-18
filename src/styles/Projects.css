@@ -1,0 +1,58 @@
+.projects-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding-top: 60px;
+}
+
+.projects-content {
+  position: relative;
+  padding: 20px 10px;
+  z-index: 1;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.projects-content h1 {
+  margin-bottom: 40px;
+}
+
+.project {
+  margin: 20px 0;
+  text-align: center;
+}
+
+.project-logo {
+  width: 150px;
+  height: 150px;
+  margin: 10px 0;
+  border-radius: 50%;
+  transition: border-radius 0.3s ease;
+}
+
+.project-logo:hover {
+  border-radius: 8px;
+}
+
+.project a {
+  display: block;
+  margin-top: 10px;
+  color: #007bff;
+  text-decoration: none;
+}
+
+.project a:hover {
+  text-decoration: underline;
+}
+
+body.light-mode .projects-content {
+  color: black;
+}
+
+body.light-mode .project a {
+  color: #0066cc;
+}

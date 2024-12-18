@@ -12,12 +12,7 @@
   left: 0;
   width: 100%;
   z-index: 1000;
-  background-color: rgba(
-    0,
-    0,
-    0,
-    0.8
-  ); /* Adjust the background color and opacity as needed */
+  background-color: rgba(0, 0, 0, 0.8);
   transition:
     transform 0.3s ease,
     backdrop-filter 0.3s ease;
@@ -31,7 +26,7 @@
   background: linear-gradient(90deg, purple, blue, white);
   background-size: 300% 300%;
   animation: gradientAnimation 5s ease infinite;
-  z-index: 1001;
+  z-index: 1003;
 }
 
 @keyframes gradientAnimation {
@@ -89,7 +84,21 @@
   cursor: pointer;
   transition:
     border 0.3s ease,
-    background-color 0.3s ease;
+    background-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.header-right button {
+  transition: transform 0.3s ease;
+}
+
+.header-right button .button-content {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.header-right button:hover .button-content {
+  transform: rotate(90deg);
 }
 
 .header-right button:hover {
@@ -121,6 +130,15 @@
     padding: 5px 10px;
     font-size: 0.8rem;
   }
+
+  .header {
+    padding: 10px 5px;
+  }
+
+  .header-left {
+    left: 5px;
+  }
+
 }
 
 body.light-mode .header {
