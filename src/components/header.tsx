@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Toaster, toast } from "react-hot-toast";
 import { DarkModeSwitch } from "react-toggle-dark-mode";
 import { useNavigate, useLocation } from "react-router-dom";
-import "./styles/header.css";
+import "../styles/header.css";
 
 const defaultTexts = [
   "S42.site",
@@ -32,14 +32,9 @@ const Header: React.FC = () => {
   const texts: string[] =
     location.pathname === "/socials"
       ? socialTexts
-      : location.pathname === "/*"
+      : location.pathname === "/404"
         ? errorTexts
         : defaultTexts;
-
-  useEffect(() => {
-    setCurrentText(texts[0]);
-    setLoopNum(0);
-  }, [location]);
 
   useEffect(() => {
     setCurrentText(texts[0]);

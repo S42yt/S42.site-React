@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
-import "./styles/readme.css";
+import "../styles/readme.css";
 
 interface Channel {
   name: string;

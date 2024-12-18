@@ -1,9 +1,9 @@
 import React from "react";
-import Header from "./header";
-import Footer from "./footer";
-import SocialReadme from "./socialreadme";
+import Header from "../components/header";
+import Footer from "../components/footer";
+import SocialReadme from "../components/socialreadme";
 import { Toaster } from "react-hot-toast";
-import "./styles/Socials.css";
+import "../styles/Socials.css";
 
 const Socials: React.FC = () => {
   return (

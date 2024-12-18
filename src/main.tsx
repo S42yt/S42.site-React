@@ -1,9 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import App from "./App";
-import Socials from "./Socials";
-import NotFound from "./NotFound";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import App from "./views/App";
+import Socials from "./views/Socials";
+import NotFound from "./views/NotFound";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
@@ -11,7 +11,8 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/socials" element={<Socials />} />
-        <Route path="*" element={<NotFound />} />
+        <Route path="/404" element={<NotFound />} />
+        <Route path="*" element={<Navigate to="/404" />} />
       </Routes>
     </Router>
   </React.StrictMode>,
