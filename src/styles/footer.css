@@ -7,7 +7,9 @@
   color: white;
   text-align: center;
   padding: 10px;
-  transition: transform 0.3s ease, backdrop-filter 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    backdrop-filter 0.3s ease;
   z-index: 1000;
   transform: translateY(100%);
   border-top: solid 1px #333;
@@ -24,7 +26,7 @@
 }
 
 .footer a {
-  color: #4493F8;
+  color: #4493f8;
   text-decoration: none;
 }
 
@@ -44,7 +46,7 @@
 .scroll-to-top svg {
   width: 24px;
   height: 24px;
-  transition: 0.5s transform ease; 
+  transition: 0.5s transform ease;
   display: flex;
   justify-content: right;
   align-items: right;

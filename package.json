@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+    "pretty": "prettier --write .",
+    "pretty:check": "prettier --check .",
     "dev": "bun run vite",
     "build": "bun run vite build",
     "serve": "bun run vite preview"
