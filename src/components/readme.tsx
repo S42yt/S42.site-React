@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { FaReact } from "react-icons/fa";
-import "./styles/readme.css";
+import "../styles/readme.css";
 
 const Readme: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);

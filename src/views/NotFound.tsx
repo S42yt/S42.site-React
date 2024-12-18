@@ -2,7 +2,7 @@ import React from "react";
 import Header from "../components/header";
 import Footer from "../components/footer";
 import { Toaster } from "react-hot-toast";
-import "./styles/NotFound.css";
+import "../styles/NotFound.css";
 
 const NotFound: React.FC = () => {
   return (

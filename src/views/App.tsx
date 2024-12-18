@@ -1,5 +1,5 @@
 import React from "react";
-import "./styles/App.css";
+import "../styles/App.css";
 import Readme from "../components/readme";
 import Header from "../components/header";
 import Footer from "../components/footer";
