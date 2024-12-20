@@ -12,7 +12,7 @@ const ShopItems: React.FC = () => {
   const [shopItems, setShopItems] = useState<ShopItem[]>([]);
 
   useEffect(() => {
-    fetch("components/shopItems.json")
+    fetch("./shopItems.json")
       .then((response) => response.json())
       .then((data) => setShopItems(data))
       .catch((error) => console.error("Error fetching shop items:", error));
