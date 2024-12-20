@@ -22,7 +22,11 @@ const ShopItems: React.FC = () => {
     <div className="shop-items">
       {shopItems.map((item, index) => (
         <div key={index} className="shop-item">
-          <img src={item.item_image} alt={item.item_name} className="shop-item-image" />
+          <img
+            src={item.item_image}
+            alt={item.item_name}
+            className="shop-item-image"
+          />
           <div className="shop-item-name">???</div>
           <div className="shop-item-description">???</div>
           <div className="shop-item-price">???</div>

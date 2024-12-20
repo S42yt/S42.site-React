@@ -1,65 +1,67 @@
 .damn-container {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-    padding-top: 60px;
-    opacity: 0;
-    transform: translateX(100%);
-    transition: transform 1s, opacity 1s;
-  }
-  
-  .damn-container.visible {
-    opacity: 1;
-    transform: translateX(0);
-  }
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding-top: 60px;
+  opacity: 0;
+  transform: translateX(100%);
+  transition:
+    transform 1s,
+    opacity 1s;
+}
+
+.damn-container.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
 
 .home {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-    padding-top: 60px;
-  }
-  
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding-top: 60px;
+}
+
+.home-content {
+  position: relative;
+  padding: 20px;
+  z-index: 1;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.home-content p {
+  margin: 15px;
+  margin-bottom: 50px;
+  color: #949494;
+}
+@media (max-width: 600px) {
   .home-content {
-    position: relative;
-    padding: 20px;
-    z-index: 1;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+    padding: 10px 5px;
   }
-  
+
   .home-content p {
-    margin: 15px;
-    margin-bottom: 50px;
-    color: #949494;
+    margin: 10px;
+    margin-bottom: 30px;
   }
-  @media (max-width: 600px) {
-    .home-content {
-      padding: 10px 5px;
-    }
-  
-    .home-content p {
-      margin: 10px;
-      margin-bottom: 30px;
-    }
-  }
-  
-  body.light-mode {
-    background-color: white;
-    color: black;
-  }
-  
-  body.light-mode .home-content {
-    color: black;
-  }
-  
-  body.light-mode .home-content p {
-    color: #333;
-  }
+}
+
+body.light-mode {
+  background-color: white;
+  color: black;
+}
+
+body.light-mode .home-content {
+  color: black;
+}
+
+body.light-mode .home-content p {
+  color: #333;
+}
 
 .navigate-button {
   display: flex;
@@ -80,12 +82,9 @@
   background-color: #36363699;
 }
 
-
-
 .navigate-button svg {
-  width: 16px; 
-  height: 16px; 
-  margin-right: 8px; 
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
   fill: white;
 }
-
