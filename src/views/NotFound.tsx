@@ -17,6 +17,7 @@ const NotFound: React.FC = () => {
         <h1 className="notfound-header">404 - Page Not Found :( </h1>
         <p>Sorry, the page you are looking for does not exist. damn</p>
       </div>
+      <div style={{ height: "20vh" }}></div>
       <Footer />
     </div>
   );

@@ -5,7 +5,8 @@ import { useNavigate, useLocation } from "react-router-dom";
 import Sidebar from "./sidebar";
 import "../styles/header.css";
 
-const defaultTexts = ["S42.site", "Portfolio", "Frontend/Backend-Developer"];
+const defaultTexts = ["S42.site", "Home", "Portfolio", "Socials", "Shop"];
+const portfolioTexts = ["S42.site", "Portfolio", "Experiences", "Front/Backend Developer"];
 const socialTexts = ["S42.site", "YouTube", "Twitch", "Instagram"];
 const errorTexts = ["S42.site", "Page Not Found", "Error: 404", "/???"];
 const projectTexts = ["S42.site", "CuteCraft.net", "Biogg.net"];
@@ -31,6 +32,8 @@ const Header: React.FC = () => {
       ? socialTexts
       : location.pathname === "/projects"
         ? projectTexts
+        : location.pathname === "/portfolio"
+          ? portfolioTexts
         : location.pathname === "/404"
           ? errorTexts
           : defaultTexts;

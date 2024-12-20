@@ -50,6 +50,7 @@ const Projects: React.FC = () => {
           </div>
         ))}
       </div>
+      <div style={{ height: "20vh" }}></div>
       <Footer />
     </div>
   );

@@ -21,6 +21,7 @@ const Socials: React.FC = () => {
         </p>
       </div>
       <SocialReadme />
+      <div style={{ height: "20vh" }}></div>
       <Footer />
     </div>
   );

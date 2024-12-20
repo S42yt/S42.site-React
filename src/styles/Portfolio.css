@@ -1,0 +1,64 @@
+
+.portfolio {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding-top: 60px;
+}
+
+.portfolio-content {
+  position: relative;
+  padding: 20px 10px;
+  z-index: 1;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.portfolio-content p {
+  margin: 15px;
+  margin-bottom: 50px;
+  color: #949494;
+}
+
+.cursor {
+  display: inline-block;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  from,
+  to {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .portfolio-content {
+    padding: 10px 5px;
+  }
+
+  .portfolio-content p {
+    margin: 10px;
+    margin-bottom: 30px;
+  }
+}
+
+body.light-mode {
+  background-color: white;
+  color: black;
+}
+
+body.light-mode .portfolio-content {
+  color: black;
+}
+
+body.light-mode .portfolio-content p {
+  color: #333;
+}
