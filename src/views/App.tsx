@@ -8,9 +8,12 @@ import "../styles/damn.css";
 
 const App: React.FC = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     document.title = "Home";
+
+    setIsVisible(true);
   }, []);
 
   const toggleSidebar = () => {
@@ -21,7 +24,7 @@ const App: React.FC = () => {
     <div className="home">
       <Header />
       <Toaster />
-      <section className="home-content">
+      <section className={`home-content ${isVisible ? "visible" : ""}`}>
         <p>Welcome to S42.site, the home of S42!</p>
         <p>
           This page is a hub for all things related to S42, including projects,
