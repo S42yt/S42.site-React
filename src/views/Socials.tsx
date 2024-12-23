@@ -7,7 +7,7 @@ import "../styles/Socials.css";
 
 const Socials: React.FC = () => {
   useEffect(() => {
-    document.title = "S42.site | Socials";
+    document.title = "Socials";
   }, []);
 
   return (

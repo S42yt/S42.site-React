@@ -10,7 +10,7 @@ const App: React.FC = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   useEffect(() => {
-    document.title = "S42.site | Home";
+    document.title = "Home";
   }, []);
 
   const toggleSidebar = () => {

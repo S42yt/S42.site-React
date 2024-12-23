@@ -21,7 +21,7 @@ const projects = [
 
 const Projects: React.FC = () => {
   useEffect(() => {
-    document.title = "S42.site | Projects";
+    document.title = "Projects";
   }, []);
 
   return (

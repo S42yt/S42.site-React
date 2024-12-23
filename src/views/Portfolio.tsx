@@ -7,7 +7,7 @@ import { Toaster } from "react-hot-toast";
 
 const App: React.FC = () => {
   useEffect(() => {
-    document.title = "S42.site | Portfolio";
+    document.title = "Portfolio";
   }, []);
 
   return (
