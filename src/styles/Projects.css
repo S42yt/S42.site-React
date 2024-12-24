@@ -56,3 +56,26 @@ body.light-mode .projects-content {
 body.light-mode .project a {
   color: #0066cc;
 }
+
+.projects-content {
+  position: relative;
+  padding: 20px 10px;
+  z-index: 1;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  opacity: 0;
+  transform: translateX(100%);
+  transition:
+    transform 1s ease-out,
+    opacity 1s ease-out;
+}
+
+.projects-content.visible {
+  opacity: 1;
+  transform: translateX(0);
+}

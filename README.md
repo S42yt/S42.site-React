@@ -23,29 +23,33 @@ This is my portfolio website built with React. It showcases my projects, social 
 ## Installation
 
 1. Clone the repository:
-    ```sh
-    git clone https://github.com/S42yt/S42.site-React.git
-    cd S42.site-React
-    ```
+
+   ```sh
+   git clone https://github.com/S42yt/S42.site-React.git
+   cd S42.site-React
+   ```
 
 2. Install dependencies using Bun:
-    ```sh
-    bun install
-    ```
+   ```sh
+   bun install
+   ```
 
 ## Usage
 
 To start the development server, run:
+
 ```sh
 bun run dev
 ```
 
 To build the project for production, run:
+
 ```sh
 bun run build
 ```
 
 To preview the production build, run:
+
 ```sh
 bun run serve
 ```

@@ -42,6 +42,11 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
               Socials
             </Link>
           </li>
+          <li>
+            <Link to="/projects" onClick={toggleSidebar}>
+              Projects
+            </Link>
+          </li>
         </ul>
         <hr />
         <h2>Projects</h2>
