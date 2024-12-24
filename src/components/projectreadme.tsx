@@ -4,13 +4,13 @@ import "../styles/Projects.css";
 const projects = [
   {
     name: "CuteCraft.net",
-    logo: "assets/cutecraft-logo.png",
+    logo: "/assets/cutecraft-logo.png",
     description: "A Minecraft server with a focus on fun and community.",
     url: "http://discord.cutecraft.net",
   },
   {
     name: "Biogg.net",
-    logo: "assets/biogg-logo.png",
+    logo: "/assets/biogg-logo.png",
     description: "A social platform to make his bio more interesting.",
     url: "https://biogg.net",
   },
