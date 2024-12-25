@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import toast from "react-hot-toast";
 import "../styles/readme.css";
+import ScrollAnimation from "../utils/ScrollAnimation";
 
 interface Channel {
   name: string;
@@ -11,7 +11,6 @@ interface Channel {
 
 const SocialReadme: React.FC = () => {
   const [channels, setChannels] = useState<Channel[]>([]);
-  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     const fetchChannels = async () => {
@@ -51,20 +50,8 @@ const SocialReadme: React.FC = () => {
     fetchChannels();
   }, []);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollY = window.scrollY;
-      if (scrollY > 50) {
-        setIsVisible(true);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   return (
-    <div className={`readme ${isVisible ? "visible" : ""}`}>
+    <ScrollAnimation className="readme">
       <h1>👋 My Social Channels</h1>
       {channels.map((channel, index) => (
         <div key={index} className="channel">
@@ -77,7 +64,7 @@ const SocialReadme: React.FC = () => {
           <hr />
         </div>
       ))}
-    </div>
+    </ScrollAnimation>
   );
 };
 

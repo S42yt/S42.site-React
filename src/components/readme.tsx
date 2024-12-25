@@ -1,23 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import toast from "react-hot-toast";
 import { FaReact } from "react-icons/fa";
+import ScrollAnimation from "../utils/ScrollAnimation";
 import "../styles/readme.css";
 
 const Readme: React.FC = () => {
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollY = window.scrollY;
-      if (scrollY > 50) {
-        setIsVisible(true);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   const handleReactClick = () => {
     toast("This Website is made with React :D", {
       icon: <FaReact />,
@@ -30,7 +17,7 @@ const Readme: React.FC = () => {
   };
 
   return (
-    <div className={`readme ${isVisible ? "visible" : ""}`}>
+    <ScrollAnimation className="readme">
       <h1>👋 Hey its me S42</h1>
       <ul>
         <li>
@@ -200,7 +187,7 @@ const Readme: React.FC = () => {
         </a>
       </p>
       <hr />
-    </div>
+    </ScrollAnimation>
   );
 };
 

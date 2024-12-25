@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "../styles/Projects.css";
+import ScrollAnimation from "../utils/ScrollAnimation";
 
 const projects = [
   {
@@ -32,7 +33,7 @@ const Readme: React.FC = () => {
   }, []);
 
   return (
-    <div className={`readme ${isVisible ? "visible" : ""}`}>
+    <ScrollAnimation className="readme">
       <div className="projects-container">
         <div className={`projects-content ${isVisible ? "visible" : ""}`}>
           <p>
@@ -57,7 +58,7 @@ const Readme: React.FC = () => {
           ))}
         </div>
       </div>
-    </div>
+    </ScrollAnimation>
   );
 };
 

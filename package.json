@@ -5,6 +5,7 @@
   "scripts": {
     "pretty": "prettier --write .",
     "pretty:check": "prettier --check .",
+    "remove-comments": "bun run RemoveComments.js",
     "dev": "bun run vite",
     "build": "bun run vite build",
     "serve": "bun run vite preview"
@@ -30,5 +31,8 @@
     "ts-node": "^10.9.2",
     "typescript": "^5.7.2",
     "vite": "^6.0.3"
+  },
+  "devDependencies": {
+    "strip-comments": "^2.0.1"
   }
 }

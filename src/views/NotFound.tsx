@@ -1,25 +1,21 @@
-import React, { useEffect } from "react";
-import Header from "../components/header";
-import Footer from "../components/footer";
-import { Toaster } from "react-hot-toast";
+import React from "react";
 import "../styles/NotFound.css";
+import useDocumentTitle from "../hooks/useDocumentTitle";
+import Layout from "../utils/Layout";
 
 const NotFound: React.FC = () => {
-  useEffect(() => {
-    document.title = "404 - Page Not Found";
-  }, []);
+  useDocumentTitle("404 - Page Not Found");
 
   return (
-    <div className="notfound-container">
-      <Header />
-      <Toaster />
-      <div className="notfound-content">
-        <h1 className="notfound-header">404 - Page Not Found :( </h1>
-        <p>Sorry, the page you are looking for does not exist. damn</p>
+    <Layout>
+      <div className="notfound-container">
+        <div className="notfound-content">
+          <h1 className="notfound-header">404 - Page Not Found :( </h1>
+          <p>Sorry, the page you are looking for does not exist. damn</p>
+        </div>
+        <div style={{ height: "20vh" }}></div>
       </div>
-      <div style={{ height: "20vh" }}></div>
-      <Footer />
-    </div>
+    </Layout>
   );
 };
 
