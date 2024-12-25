@@ -31,6 +31,7 @@ const App: React.FC = () => {
         </section>
         <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
       </div>
+      <div style={{ height: "50vh" }}></div>
     </Layout>
   );
 };
