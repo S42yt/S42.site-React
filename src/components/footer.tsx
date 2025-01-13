@@ -29,7 +29,7 @@ const Footer: React.FC = () => {
     <footer className={`footer ${isVisible ? "visible" : ""}`}>
       <div className="footer-content">
         <p>
-          © 2024 Musa. Made with ❤️. Check out my{" "}
+          © 2025 Musa. Made with ❤️. Check out my{" "}
           <a href="https://github.com/S42yt">GitHub</a>.
         </p>
         <button className="scroll-to-top" onClick={scrollToTop}>
