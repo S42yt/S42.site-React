@@ -7,7 +7,7 @@ const projects = [
     name: "CuteCraft.net",
     logo: "/assets/cutecraft-logo.png",
     description: "A Minecraft server with a focus on fun and community.",
-    url: "http://discord.cutecraft.net",
+    url: "https://discord.gg/cutecraft",
   },
   {
     name: "Biogg.net",

@@ -29,11 +29,10 @@ const Readme: React.FC = () => {
         </li>
         <li>
           💽Working on <a href="https://biogg.net">Biogg.net</a> and{" "}
-          <a href="http://discord.cutecraft.net">CuteCraft.net</a> at the Moment
+          <a href="https://discord.gg/cutecraft">CuteCraft.net</a> at the Moment
         </li>
       </ul>
       <p>
-        <i>i stole from tamikaschu uwu</i>
       </p>
       <h3>
         📲Contact me through Discord:{" "}
@@ -175,16 +174,6 @@ const Readme: React.FC = () => {
           src="https://github-readme-stats.vercel.app/api/top-langs/?username=S42yt&theme=dark&hide_border=false&include_all_commits=false&count_private=false&layout=compact"
           alt="Top Languages"
         />
-      </p>
-      <hr />
-      <h2>💰 You can help me by Donating</h2>
-      <p>
-        <a href="https://patreon.com/S42yt">
-          <img
-            src="https://img.shields.io/badge/Patreon-F96854?style=for-the-badge&logo=patreon&logoColor=white"
-            alt="Patreon"
-          />
-        </a>
       </p>
       <hr />
     </ScrollAnimation>
