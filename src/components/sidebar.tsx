@@ -47,13 +47,18 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
               Projects
             </Link>
           </li>
+          <li>
+            <Link to="/shop" onClick={toggleSidebar}>
+              Shop
+            </Link>
+          </li>
         </ul>
         <hr />
         <h2>Projects</h2>
         <ul>
           <li>
             <a
-              href="http://discord.cutecraft.net"
+              href="https://discord.gg/cutecraft"
               target="_blank"
               rel="noopener noreferrer"
             >
