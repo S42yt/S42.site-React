@@ -19,11 +19,11 @@ const Shop: React.FC = () => {
   useEffect(() => {
     const downloadItems: DownloadItem[] = [
       {
-        name: "Trade Cycle Minecraft Plugin",
-        path: "/assets/downloads/tradecycle-tradecycle-1.1-SNAPSHOT.jar",
+        name: "Trade Cycle PaperMC Plugin",
+        path: "/assets/downloads/tradecycle-tradecycle-1.3.jar",
         icon: "/assets/downloads/icons/trade_cycle.png",
         github: "https://github.com/S42yt/TradeCycle",
-        description: "A Minecraft plugin that enables trading between players."
+        description: "TradeCycle is a Paper plugin written in Kotlin to cycle through Villager trades."
       }
     ];
     setDownloads(downloadItems);
