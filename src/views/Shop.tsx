@@ -20,7 +20,7 @@ const Shop: React.FC = () => {
     const downloadItems: DownloadItem[] = [
       {
         name: "Trade Cycle PaperMC Plugin",
-        path: "/assets/downloads/tradecycle-tradecycle-1.3.jar",
+        path: "/assets/downloads/tradecycler-1.3.jar",
         icon: "/assets/downloads/icons/trade_cycle.png",
         github: "https://github.com/S42yt/TradeCycle",
         description: "TradeCycle is a Paper plugin written in Kotlin to cycle through Villager trades."
