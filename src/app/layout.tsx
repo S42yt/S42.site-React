@@ -1,21 +1,21 @@
-import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
-import { Toaster } from 'react-hot-toast'
-import Header from '@/components/Header'
-import Footer from '@/components/Footer'
-import './globals.css'
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import Header from "@/components/header";
+import Footer from "@/components/footer";
+import { Toaster } from "react-hot-toast";
+import "./globals.css";
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'S42.Site',
-  description: 'S42 official Homepage!',
-}
+  title: "S42.Site",
+  description: "S42 official Homepage!",
+};
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="en">
@@ -34,5 +34,5 @@ export default function RootLayout({
         <Footer />
       </body>
     </html>
-  )
+  );
 }

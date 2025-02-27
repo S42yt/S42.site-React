@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import ScrollAnimation from "./ScrollAnimation";
 import Image from "next/image";
+import ScrollAnimation from "./ScrollAnimation";
 
 interface Channel {
   name: string;
@@ -57,13 +57,14 @@ export default function SocialReadme() {
       <h1 className="text-3xl font-bold mb-8 text-blue-300/80">👋 My Social Channels</h1>
       <div className="space-y-12">
         {channels.map((channel, index) => (
-          <div key={index} className="channel mb-10">
+          <div key={index} className="mb-10">
             <h2 className="text-2xl font-bold mb-4">{channel.name}</h2>
             <div className="relative w-[150px] h-[150px] mx-auto my-4 transition-all duration-300 rounded-full hover:rounded-lg overflow-hidden">
               <Image 
                 src={channel.pfp} 
-                alt={`${channel.name} profile`} 
-                fill
+                alt={`${channel.name} profile`}
+                width={150}
+                height={150}
                 className="object-cover"
               />
             </div>

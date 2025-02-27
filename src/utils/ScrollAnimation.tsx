@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, ReactNode } from "react";
+import { ReactNode, useEffect, useState } from "react";
 
 interface ScrollAnimationProps {
   children: ReactNode;
@@ -17,7 +17,7 @@ export default function ScrollAnimation({
 
   useEffect(() => {
     const onScroll = () => {
-      if (window.scrollY > threshold) {
+      if (typeof window !== 'undefined' && window.scrollY > threshold) {
         setIsVisible(true);
       }
     };
@@ -30,7 +30,9 @@ export default function ScrollAnimation({
 
   return (
     <div 
-      className={`${className} transform transition-transform duration-1000 ease-out opacity-0 translate-x-full ${isVisible ? 'opacity-100 translate-x-0' : ''}`}
+      className={`${className} transform transition-all duration-1000 ease-out opacity-0 translate-x-full ${
+        isVisible ? 'opacity-100 translate-x-0' : ''
+      }`}
     >
       {children}
     </div>
