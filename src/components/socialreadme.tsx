@@ -1,6 +1,8 @@
-import React, { useEffect, useState } from "react";
-import "../styles/readme.css";
-import ScrollAnimation from "../utils/ScrollAnimation";
+"use client";
+
+import { useEffect, useState } from "react";
+import ScrollAnimation from "./ScrollAnimation";
+import Image from "next/image";
 
 interface Channel {
   name: string;
@@ -9,7 +11,7 @@ interface Channel {
   url: string;
 }
 
-const SocialReadme: React.FC = () => {
+export default function SocialReadme() {
   const [channels, setChannels] = useState<Channel[]>([]);
 
   useEffect(() => {
@@ -51,21 +53,33 @@ const SocialReadme: React.FC = () => {
   }, []);
 
   return (
-    <ScrollAnimation className="readme">
-      <h1>👋 My Social Channels</h1>
-      {channels.map((channel, index) => (
-        <div key={index} className="channel">
-          <h2>{channel.name}</h2>
-          <img src={channel.pfp} alt={`${channel.name} profile`} />
-          <p>{channel.description}</p>
-          <a href={channel.url} target="_blank" rel="noopener noreferrer">
-            Visit {channel.name}
-          </a>
-          <hr />
-        </div>
-      ))}
+    <ScrollAnimation className="p-5 mx-5 mb-10 text-center">
+      <h1 className="text-3xl font-bold mb-8 text-blue-300/80">👋 My Social Channels</h1>
+      <div className="space-y-12">
+        {channels.map((channel, index) => (
+          <div key={index} className="channel mb-10">
+            <h2 className="text-2xl font-bold mb-4">{channel.name}</h2>
+            <div className="relative w-[150px] h-[150px] mx-auto my-4 transition-all duration-300 rounded-full hover:rounded-lg overflow-hidden">
+              <Image 
+                src={channel.pfp} 
+                alt={`${channel.name} profile`} 
+                fill
+                className="object-cover"
+              />
+            </div>
+            <p className="text-gray-400 mb-4">{channel.description}</p>
+            <a 
+              href={channel.url} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-blue-400 hover:underline"
+            >
+              Visit {channel.name}
+            </a>
+            <hr className="border-gray-700 my-8" />
+          </div>
+        ))}
+      </div>
     </ScrollAnimation>
   );
-};
-
-export default SocialReadme;
+}

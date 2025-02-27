@@ -1,5 +1,6 @@
-import React, { useState, useEffect, ReactNode } from "react";
-import "../styles/ScrollAnimation.css";
+"use client";
+
+import { useState, useEffect, ReactNode } from "react";
 
 interface ScrollAnimationProps {
   children: ReactNode;
@@ -7,11 +8,11 @@ interface ScrollAnimationProps {
   className?: string;
 }
 
-const ScrollAnimation: React.FC<ScrollAnimationProps> = ({
+export default function ScrollAnimation({
   children,
   threshold = 50,
-  className = "slide-in",
-}) => {
+  className = "",
+}: ScrollAnimationProps) {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -20,15 +21,18 @@ const ScrollAnimation: React.FC<ScrollAnimationProps> = ({
         setIsVisible(true);
       }
     };
+    
+    onScroll();
+    
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, [threshold]);
 
   return (
-    <div className={`${className} ${isVisible ? "visible" : ""}`}>
+    <div 
+      className={`${className} transform transition-transform duration-1000 ease-out opacity-0 translate-x-full ${isVisible ? 'opacity-100 translate-x-0' : ''}`}
+    >
       {children}
     </div>
   );
-};
-
-export default ScrollAnimation;
+}

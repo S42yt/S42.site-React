@@ -1,22 +1,19 @@
-import React, { useEffect, useState } from "react";
-import { Toaster, toast } from "react-hot-toast";
-import { DarkModeSwitch } from "react-toggle-dark-mode";
-import { useNavigate, useLocation } from "react-router-dom";
-import Sidebar from "./sidebar";
-import "../styles/header.css";
+"use client";
+
+import { useState, useEffect } from 'react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { Toaster, toast } from 'react-hot-toast';
+import { DarkModeSwitch } from 'react-toggle-dark-mode';
+import Sidebar from './Sidebar';
 
 const defaultTexts = ["S42.site", "Home", "Portfolio", "Socials", "Shop"];
-const portfolioTexts = [
-  "S42.site",
-  "Portfolio",
-  "Experiences",
-  "Front/Backend Developer",
-];
+const portfolioTexts = ["S42.site", "Portfolio", "Experiences", "Front/Backend Developer"];
 const socialTexts = ["S42.site", "YouTube", "Twitch", "Instagram"];
 const errorTexts = ["S42.site", "Page Not Found", "Error: 404", "/???"];
 const projectTexts = ["S42.site", "CuteCraft.net", "Biogg.net"];
 
-const Header: React.FC = () => {
+export default function Header() {
   const [currentText, setCurrentText] = useState(defaultTexts[0]);
   const [isDeleting, setIsDeleting] = useState(false);
   const [loopNum, setLoopNum] = useState(0);
@@ -29,24 +26,24 @@ const Header: React.FC = () => {
   const [scrollProgress, setScrollProgress] = useState(0);
   const [clickCount, setClickCount] = useState(0);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const navigate = useNavigate();
-  const location = useLocation();
+  
+  const pathname = usePathname();
 
   const texts: string[] =
-    location.pathname === "/socials"
+    pathname === "/socials"
       ? socialTexts
-      : location.pathname === "/projects"
+      : pathname === "/projects"
         ? projectTexts
-        : location.pathname === "/portfolio"
+        : pathname === "/portfolio"
           ? portfolioTexts
-          : location.pathname === "/404"
+          : pathname === "/404"
             ? errorTexts
             : defaultTexts;
 
   useEffect(() => {
     setCurrentText(texts[0]);
     setLoopNum(0);
-  }, [location]);
+  }, [pathname]);
 
   useEffect(() => {
     const handleType = () => {
@@ -73,10 +70,12 @@ const Header: React.FC = () => {
     const timer = setTimeout(handleType, typingSpeed);
 
     return () => clearTimeout(timer);
-  }, [currentText, isDeleting, loopNum, typingSpeed]);
+  }, [currentText, isDeleting, loopNum, typingSpeed, texts]);
 
   useEffect(() => {
     const handleScroll = () => {
+      if (typeof window === 'undefined') return;
+      
       const scrollY = window.scrollY;
       const maxScroll =
         document.documentElement.scrollHeight - window.innerHeight;
@@ -153,16 +152,17 @@ const Header: React.FC = () => {
   return (
     <>
       <header
-        className="header"
+        className="fixed top-0 left-0 w-full z-50 p-5 flex justify-center items-center text-white bg-black/80"
         style={{
           backdropFilter: `blur(${headerBlur}px)`,
         }}
       >
-        <div
-          className="scroll-progress"
+        <div 
+          className="absolute top-0 left-0 h-[5px] bg-gradient-to-r from-purple-500 via-blue-500 to-white bg-[length:300%_300%] animate-gradient" 
           style={{ width: `${scrollProgress}%` }}
         ></div>
-        <div className="header-left">
+        
+        <div className="absolute left-8 top-1/2 transform -translate-y-1/2">
           <DarkModeSwitch
             checked={isDarkMode}
             onChange={handleDarkModeToggle}
@@ -171,8 +171,9 @@ const Header: React.FC = () => {
             moonColor="white"
           />
         </div>
+        
         <h1
-          className="headertext"
+          className="text-2xl inline-block whitespace-nowrap overflow-hidden transition-transform duration-300 ease-in-out cursor-pointer"
           style={{
             transform: `scale(${headerTextScale})`,
             opacity: headerTextOpacity,
@@ -180,18 +181,19 @@ const Header: React.FC = () => {
           onClick={handleHeaderTextClick}
         >
           {currentText}
-          <span className="cursor">|</span>
+          <span className="inline-block animate-blink">|</span>
         </h1>
-        <div className="header-right">
-          <button onClick={toggleSidebar}>
-            <span className="button-content">☰</span>
+        
+        <div className="absolute right-8 top-1/2 transform -translate-y-1/2">
+          <button 
+            onClick={toggleSidebar}
+            className="bg-black text-white p-2 rounded cursor-pointer hover:bg-gray-800 transition-transform duration-300"
+          >
+            <span className="inline-block transition-transform hover:rotate-90 duration-300">☰</span>
           </button>
         </div>
-        <Toaster />
       </header>
       <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
     </>
   );
-};
-
-export default Header;
+}
