@@ -1,9 +1,8 @@
 "use client";
 
 import { useState, useEffect } from 'react';
-import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Toaster, toast } from 'react-hot-toast';
+import { toast } from 'react-hot-toast';
 import { DarkModeSwitch } from 'react-toggle-dark-mode';
 import Sidebar from './Sidebar';
 
@@ -24,7 +23,6 @@ export default function Header() {
   const [isDarkMode, setIsDarkMode] = useState(true);
   const [isLightModeLocked, setIsLightModeLocked] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
-  const [clickCount, setClickCount] = useState(0);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   
   const pathname = usePathname();
@@ -43,7 +41,7 @@ export default function Header() {
   useEffect(() => {
     setCurrentText(texts[0]);
     setLoopNum(0);
-  }, [pathname]);
+  }, [texts, pathname]);
 
   useEffect(() => {
     const handleType = () => {
